@@ -13,87 +13,90 @@
 	let message = '';
 
 	const handleCancel = () => {
-	amount = 0;
-	token = '';
-	cashuDonos = [];
-	isPrepared = false;
-	isFinished = false;
-	isSending = false;
-	message = '';
+		amount = 0;
+		token = '';
+		cashuDonos = [];
+		isPrepared = false;
+		isFinished = false;
+		isSending = false;
+		message = '';
 	};
-
 
 	const handleSend = async () => {
-		isSending = true;
-		const failedMints = [];
-		isSending = true;
-		for (let index = 0; index < cashuDonos.length; index++) {
-			const dono = cashuDonos[index];
-			console.log(dono);
-			message = 'paying invoices...';
-			try{
-
-				const { isPaid, preimage } = await dono.wallet.payLnInvoice(dono.invoice, dono.proofs);
-				if (!isPaid) {
+		if (browser) {
+			isSending = true;
+			const failedMints = [];
+			isSending = true;
+			for (let index = 0; index < cashuDonos.length; index++) {
+				const dono = cashuDonos[index];
+				console.log(dono);
+				message = 'paying invoices...';
+				try {
+					const { isPaid, preimage } = await dono.wallet.payLnInvoice(dono.invoice, dono.proofs);
+					if (!isPaid) {
+						failedMints.push(dono.wallet.mint.mintUrl);
+						message =
+							'Mints' + failedMints?.join(', ') + 'reported a failure when paying the invoice';
+					}
+				} catch (e) {
+					console.log(e);
 					failedMints.push(dono.wallet.mint.mintUrl);
-					message = 'Mints' + failedMints?.join(', ') + 'reported a failure when paying the invoice';
+					message =
+						'Mints' + failedMints?.join(', ') + ' reported a failure when paying the invoice';
 				}
-			} catch (e) {
-				console.log(e)
-				failedMints.push(dono.wallet.mint.mintUrl);
-				message = 'Mints' + failedMints?.join(', ') + ' reported a failure when paying the invoice';
-			} 
+			}
+			if (failedMints.length < 1) {
+				message = 'Done! Thanks for the donation.';
+			}
+			isFinished = true;
 		}
-		if (failedMints.length < 1) {
-			message = 'Done! Thanks for the donation.';
-		}
-		isFinished = true;
 	};
 
-
 	const validateToken = () => {
-		if (!token) {
-			return;
-		}
-		const parsedTokens = getDecodedProofs(token);
-		if (!parsedTokens.mints || !parsedTokens.proofs) {
-			return;
-		}
-
-		parsedTokens?.mints?.forEach(async (mint) => {
-			const cashuMint = new CashuMint(mint.url);
-			try {
-				amount = 0;
-				const proofsForMint = parsedTokens.proofs.filter((p) => mint.keysets.includes(p.id));
-				if (!proofsForMint) {
-					return;
-				}
-				message = 'contacting Mint...';
-				const keys = await cashuMint.getKeys();
-				const cashuWallet = new CashuWallet(keys, cashuMint);
-				message = 'Verifying Proofs...';
-				const spentProofs = await cashuWallet.checkProofsSpent(proofsForMint);
-				const unspentProofs = proofsForMint.filter((p) => !spentProofs.includes(p));
-				const donoAmount = unspentProofs.reduce((acc, p) => acc + p.amount, 0);
-				message = 'Requesting Invoices...';
-				const { invoice, params, successAction, validatePreimage } = await requestInvoice({
-					lnUrlOrAddress: lnaddress,
-					tokens: Math.floor(donoAmount * 0.98) - 1
-				});
-				const recomendedFees = await cashuWallet.getFee(invoice);
-				const donoFees = Math.floor(donoAmount * 0.02) + 2;
-				const donoInvoice = invoice;
-				cashuDonos.push({
-					wallet: cashuWallet,
-					proofs: unspentProofs,
-					fees: donoFees,
-					invoice: donoInvoice
-				});
-				isPrepared = true;
-			} catch (e) {
-				console.error(e);
+		if (browser) {
+			if (!token) {
+				return;
 			}
-		});
+			const parsedTokens = getDecodedProofs(token);
+			if (!parsedTokens.mints || !parsedTokens.proofs) {
+				return;
+			}
+
+			parsedTokens?.mints?.forEach(async (mint) => {
+				const cashuMint = new CashuMint(mint.url);
+				try {
+					amount = 0;
+					const proofsForMint = parsedTokens.proofs.filter((p) => mint.keysets.includes(p.id));
+					if (!proofsForMint) {
+						return;
+					}
+					message = 'contacting Mint...';
+					const keys = await cashuMint.getKeys();
+					const cashuWallet = new CashuWallet(keys, cashuMint);
+					message = 'Verifying Proofs...';
+					const spentProofs = await cashuWallet.checkProofsSpent(proofsForMint);
+					const unspentProofs = proofsForMint.filter((p) => !spentProofs.includes(p));
+					const donoAmount = unspentProofs.reduce((acc, p) => acc + p.amount, 0);
+					message = 'Requesting Invoices...';
+					const { invoice, params, successAction, validatePreimage } = await requestInvoice({
+						lnUrlOrAddress: lnaddress,
+						tokens: Math.floor(donoAmount * 0.98) - 1
+					});
+					const recomendedFees = await cashuWallet.getFee(invoice);
+					const donoFees = Math.floor(donoAmount * 0.02) + 2;
+					const donoInvoice = invoice;
+					cashuDonos.push({
+						wallet: cashuWallet,
+						proofs: unspentProofs,
+						fees: donoFees,
+						invoice: donoInvoice
+					});
+					isPrepared = true;
+				} catch (e) {
+					console.error(e);
+				}
+			});
+		}
 	};
 </script>
 
