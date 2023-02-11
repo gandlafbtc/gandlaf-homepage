@@ -34,4 +34,4 @@
 	}
 </script>
 
-<div class="lottie-display" on:click={playLottie} id={lottieID} />
+<div class="lottie-display" on:mouseup={playLottie} on:touchend={playLottie} id={lottieID} />
