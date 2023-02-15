@@ -56,6 +56,5 @@ self.addEventListener('fetch', (event) => {
     //   return cache.match(event.request);
     }
   }
- 
   event.respondWith(respond());
 });

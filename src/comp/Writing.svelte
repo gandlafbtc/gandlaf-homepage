@@ -1,4 +1,4 @@
-<div class="card w-96 bg-base-300 shadow-xl h-full">
+<div class="card w-full bg-base-300 shadow-xl h-full">
     <div class="card-body h-full">
       <h2 class="card-title">Writing</h2>
       <div>

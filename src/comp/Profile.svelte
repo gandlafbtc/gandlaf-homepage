@@ -43,7 +43,7 @@
 </script>
 
 <div class="w-full h-full flex items-center justify-center text-gray-100">
-	<div class="card w-96 bg-base-300">
+	<div class="card w-full bg-base-300">
 		<div class="flex flex-col gap-2 items-center">
 			<figure class="m-2">
 				<div class="avatar m-2">
