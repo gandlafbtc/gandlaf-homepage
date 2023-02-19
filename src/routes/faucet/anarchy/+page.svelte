@@ -1,10 +1,13 @@
 <script>
 	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
 	import ChargeFaucet from '../../../comp/ChargeFaucet.svelte';
 
 	let token = 'click refresh to check the faucet...';
 	let foundToken = false;
 	let isLoading = false;
+	
+
 	const refreshToken = async () => {
 		foundToken = false;
 		isLoading = true;
@@ -41,6 +44,7 @@
 	<div class="card w-96 h-64 bg-base-100 shadow-xl">
 		<div class="card-body flex flex-col items-center">
 			<p class="text-lg font-bold">Cashu Faucet</p>
+			<p class="text-lg font-bold"></p>
 			<p class="h-10 text-info">
 				{#if foundToken}
 					<span
