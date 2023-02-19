@@ -1,6 +1,9 @@
 <footer class="footer p-10 bg-neutral text-neutral-content">
 	<div>
 		<span class="footer-title">Profiles</span>
+		<a class="link link-hover flex gap-2 break-all" href="https://snort.social/p/npub1cj6ndx5akfazux7f0vjl4fyx9k0ulf682p437fe03a9ndwqjm0tqj886t6">
+			npub1cj6ndx5akfazux7f0vjl4fyx9k0ulf682p437fe03a9ndwqjm0tqj886t6
+		</a>
 		<a class="link link-hover flex gap-2" href="https://twitter.com/gandlaf21">
 			<svg
 				class="w-4 h-4 text-gray-100"
@@ -45,9 +48,9 @@
 	</div>
 	<div>
         <span class="footer-title">@gandlaf21</span>
-		<a class="link link-hover" href='/about'>About</a>
 		<a class="link link-hover" href='/donate'>Support me</a>
 		<a class="link link-hover" href='/hire'>Work with me</a>
+		<a class="link link-hover" href='/about'>About</a>
 		
 	</div>
 </footer>
