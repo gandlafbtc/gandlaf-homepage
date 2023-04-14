@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { CashuMint, CashuWallet, getDecodedProofs } from '@gandlaf21/cashu-ts';
+	import { CashuMint, CashuWallet, getDecodedToken } from '@cashu/cashu-ts';
 	import { requestInvoice } from 'lnurl-pay/dist/umd/index';
 
 	export let lnaddress: String;
@@ -52,21 +52,22 @@
 		}
 	};
 
-	const validateToken = () => {
+	const validateToken = async () => {
 		if (browser) {
 			if (!token) {
 				return;
 			}
-			const parsedTokens = getDecodedProofs(token);
-			if (!parsedTokens.mints || !parsedTokens.proofs) {
+			const {token: parsedTokens} = getDecodedToken(token);
+			if (!parsedTokens[0].mint || !parsedTokens[0].proofs) {
 				return;
 			}
-
-			parsedTokens?.mints?.forEach(async (mint) => {
-				const cashuMint = new CashuMint(mint.url);
+			
+			for (const t of parsedTokens) {
+				
+				const cashuMint = new CashuMint(t.mint);
 				try {
 					amount = 0;
-					const proofsForMint = parsedTokens.proofs.filter((p) => mint.keysets.includes(p.id));
+					const proofsForMint = t.proofs
 					if (!proofsForMint) {
 						return;
 					}
@@ -95,7 +96,8 @@
 				} catch (e) {
 					console.error(e);
 				}
-			});
+			}
+			
 		}
 	};
 </script>
