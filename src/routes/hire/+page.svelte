@@ -7,4 +7,11 @@
 </p>
 <p> If you have an interesting project planned, reach out to me so we can see if we can work together.</p>
 <a href="mailto:gandlaf@proton.me" class="link link-secondary">gandlaf@proton.me</a>
+
+<p>
+    or book my time on LNcal.com
+</p>
+<a class="btn btn-warning" target="_blank" rel="noreferrer" href="https://lncal.com/gandlaf21">
+    Book
+</a>
 </div>

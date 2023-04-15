@@ -23,6 +23,17 @@
 							>cashu-bdhke-kmp</a
 						> - A kotlin Multiplatform implementation of the Cashu BDHKE protocol.
 					</li>
+					<li>
+						<a href="https://github.com/gandlafbtc/cashu-faucet" class="link link-secondary"
+							>cashu faucet</a
+						> - a <a class="link link-secondary" href="https://gandlaf.com/faucet">faucet </a>that dribbles sum nuts
+					</li>
+					<li>
+						<a href="https://github.com/gandlafbtc/spacenut" class="link link-secondary"
+							>space nut</a
+						> - the best <a class="link link-secondary" href="https://spacenut.nutstash.app/">game </a>you've ever played
+					</li>
+					
 				</ul>
 			</div>
 		</div>
