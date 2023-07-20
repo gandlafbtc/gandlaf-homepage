@@ -45,6 +45,9 @@
 	<div>
 		<span class="footer-title">Projects</span>
 		<a class="link link-hover" href='https://nutstash.app'>nutstash.app</a>
+		<a class="link link-hover" href='https://proxnut.com'>proxnut</a>
+		<a class="link link-hover" href='https://brrr.gandlaf.com'>brrr</a>
+		<a class="link link-hover" href='https://spacenut.nutstash.app'>spacenut</a>
 	</div>
 	<div>
         <span class="footer-title">@gandlaf21</span>
