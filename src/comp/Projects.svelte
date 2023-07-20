@@ -33,7 +33,15 @@
 							>space nut</a
 						> - the best <a class="link link-secondary" href="https://spacenut.nutstash.app/">game </a>you've ever played
 					</li>
-					
+					<li>
+						<a href="https://github.com/gandlafbtc/cashu-brrr" class="link link-secondary"
+							>brrr</a
+						> - a cashu <a class="link link-secondary" href="https://brrr.gandlaf.com/">money printer </a>					</li>
+						<li>
+							<a href="https://github.com/gandlafbtc/proxnut" class="link link-secondary"
+								>Proxnut</a
+							> - a cashu <a class="link link-secondary" href="https://proxnut.com/">Proxy</a> to secure APIs					</li>
+						
 				</ul>
 			</div>
 		</div>

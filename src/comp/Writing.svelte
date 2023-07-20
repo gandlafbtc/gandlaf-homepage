@@ -4,7 +4,7 @@
 		<div>
 			<p>Things I've written.</p>
 			<div class="pt-2">
-				<ul>
+				<ul class="flex flex-col gap-2">
 					<li>
 						<a
 							href="https://gandlaf.substack.com/p/elliptic-curve-cryptography-for-noobs"
@@ -13,7 +13,38 @@
 					</li>
 					<li>
 						<a href="https://lconf.gandlaf.com" class="link link-secondary">Hide your nuts!</a>
-             - Cashu presentation
+						- Cashu presentation @ Lightningcon Vietnam 2023
+					</li>
+					<li>
+						<a href="https://nuts-and-bolts.gandlaf.com" class="link link-secondary"
+							>Hide your nuts!</a
+						>
+						- Ecash workshop @ Bitcoin Conference Bangkok 2023
+					</li>
+					
+					<li>
+						<a href="https://bolt.fun/story/nutstash-newsletter-1--848" class="link link-secondary"
+							>nutstash newsletter #1</a
+						>
+						- 🚀
+					</li>
+					<li>
+						<a href="https://bolt.fun/story/nutstash-newsletter-2-rethinking-ecash-design--853" class="link link-secondary"
+							>nutstash newsletter #2</a
+						>
+						- Rethinking ecash design
+					</li>
+					<li>
+						<a href="https://bolt.fun/story/nutstash-newsletter-3-from-vision-to-reality--882" class="link link-secondary"
+							>nutstash newsletter #3</a
+						>
+						- From vision to reality
+					</li>
+					<li>
+						<a href="https://bolt.fun/story/nutstash-newsletter-4-printing-money-at-the-bkk-bitcoin-conference--907" class="link link-secondary"
+							>nutstash newsletter #4</a
+						>
+						- Printing money at the BKK Bitcoin Conference
 					</li>
 				</ul>
 			</div>
