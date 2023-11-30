@@ -52,25 +52,27 @@ const fetchGithub = async () => {
 }
 
 const fetchFromStackerNews = async () => {
-    const stackerNewsUrl = `https://stacker.news/api/graphql`;
+    // const stackerNewsUrl = `https://stacker.news/api/graphql`;
 
-    const responseSN = await fetch(stackerNewsUrl,
-        {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'cache-control': 'max-age=60'
-            },
+    // const responseSN = await fetch(stackerNewsUrl,
+    //     {
+    //         method: "post",
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json',
+    //             'cache-control': 'max-age=60'
+    //         },
 
-            body: JSON.stringify({
-                "query": "query User($name: String!){user(name: $name){stacked, spent}}",
-                "variables": {
-                    "name": "gandlaf21"
-                }
-            })
-        });
-    const stackedData = await responseSN.json()
-    return stackedData.data.user
-
+    //         body: JSON.stringify({
+    //             "query": "query User($name: String!){user(name: $name){stacked, spent}}",
+    //             "variables": {
+    //                 "name": "gandlaf21"
+    //             }
+    //         })
+    //     });
+    // const stackedData = await responseSN.json()
+    // return stackedData.data.user
+    return {stacked: 44000, spent:23000}
 }
+
+
