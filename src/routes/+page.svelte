@@ -1,18 +1,21 @@
 <script>
-	import Profile from "../comp/Profile.svelte";
-	import Projects from "../comp/Projects.svelte";
-	import Writing from "../comp/Writing.svelte";
+	import Donate from "$lib/comp/Donate.svelte";
+	import Profile from "$lib/comp/Profile.svelte";
+	import Projects from "$lib/comp/Projects.svelte";
+	import Writing from "$lib/comp/Writing.svelte";
 
 </script>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-2 m-2 h-full">
-  <div class="order-2 lg:order-1 justify-self-center w-full h-full">
-    <Projects></Projects>
-  </div>
-  <div class="order-1 lg:order-2 w-full h-full">
-    <Profile></Profile>
-  </div>
-  <div class="order-3 justify-self-center  w-full h-full">
-    <Writing>
-    </Writing>
-  </div>
+<div class="flex p-2 gap-2 flex-col xl:flex-row">
+    <div class="order-2 xl:order-1 w-full xl:w-1/3">
+        <Projects></Projects>
+    </div>
+    <div class="order-1 xl:order-2 w-full xl:w-1/3 flex flex-col gap-2">
+        <div>
+            <Profile></Profile>
+        </div>
+    </div>
+    <div class="order-3 w-full xl:w-1/3">
+        <Writing></Writing>
+    </div>
+
 </div>

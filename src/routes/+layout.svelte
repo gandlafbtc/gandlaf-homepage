@@ -1,14 +1,12 @@
 <script lang="ts">
-	import '../app.postcss';
-	import "../app.css";
-	import Footer from '../comp/Footer.svelte';
-	import Header from '../comp/Header.svelte';
+	import Footer from '$lib/comp/Footer.svelte';
+	import Header from '$lib/comp/Header.svelte';
+	import '../app.css';
+	let { children } = $props();
 </script>
 
-<div class="w-full h-full flex-col flex">
-	<Header></Header>
-	<div class="min-h-screen">
-		<slot />
-	</div>
-	<Footer></Footer>
+<Header></Header>
+<div class="min-h-screen">
+  {@render children()}
 </div>
+<Footer></Footer>

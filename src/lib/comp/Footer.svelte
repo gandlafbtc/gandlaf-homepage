@@ -54,6 +54,5 @@
 		<a class="link link-hover" href='/donate'>Support me</a>
 		<a class="link link-hover" href='/hire'>Work with me</a>
 		<a class="link link-hover" href='/about'>About</a>
-		
 	</div>
 </footer>
